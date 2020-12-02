@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="!(todoState.completed && store.state.hideCompleted)"
     class="`relative rounded bg-queenBlue-2 shadow"
     :style="{ opacity: todo.completed ? '.65' : '1' }"
   >
@@ -27,6 +28,7 @@
         </button>
       </div>
     </div>
+    <!-- todostate.completed = {{ todoState.completed }} -->
   </div>
 </template>
 
@@ -55,6 +57,7 @@ export default {
     return {
       store,
       handleMarkCompleted,
+      todoState,
     };
   },
 };

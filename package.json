@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "dev:client": "npm run serve --prefix client",
-    "build:client": "npm run build --prefix client",
+    "dev:client": "npm run serve --prefix frontend",
+    "build:client": "npm run build --prefix frontend",
     "test": "jest --watchAll --no-cache"
   },
   "keywords": [],

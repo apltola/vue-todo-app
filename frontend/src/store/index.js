@@ -1,6 +1,5 @@
 import { reactive, readonly, provide, inject } from 'vue';
 import axios from 'axios';
-//import todoActions from './actions/todos';
 
 export const storeSymbol = Symbol('store');
 
@@ -8,6 +7,7 @@ export function createStore() {
   const state = reactive({
     session: null,
     todos: [],
+    hideCompleted: true,
   });
 
   // login or signup
@@ -77,6 +77,10 @@ export function createStore() {
     state.todos = res.data;
   }
 
+  function toggleHideCompleted() {
+    state.hideCompleted = !state.hideCompleted;
+  }
+
   return {
     authenticate,
     logout,
@@ -85,6 +89,7 @@ export function createStore() {
     addNewTodo,
     deleteTodo,
     markTodoComplete,
+    toggleHideCompleted,
     state: readonly(state),
   };
 }
