@@ -12,7 +12,6 @@ module.exports = function (req, res, next) {
 
   try {
     const payload = jwt.verify(req.session.jwt, config.JWT_SECRET);
-    console.log('payload -> ', payload);
 
     req.currentUser = payload;
   } catch (error) {
