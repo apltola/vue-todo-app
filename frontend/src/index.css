@@ -1,0 +1,24 @@
+/*! @import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button.primary {
+    @apply font-bold h-9 px-8 border border-transparent text-sm font-medium rounded-md bg-aquamarine-2 hover:bg-aquamarine-3 focus:bg-aquamarine-3 active:bg-aquamarine-4 focus:outline-none;
+  }
+
+  button.toggleSelected {
+    @apply font-bold text-aquamarine-2 border-b-2 border-aquamarine-2;
+  }
+
+  button.disabled {
+    @apply cursor-not-allowed;
+  }
+}
+
+@layer utilities {
+  .debug {
+    border: 1px solid red;
+  }
+}

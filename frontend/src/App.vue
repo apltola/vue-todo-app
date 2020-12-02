@@ -1,30 +1,34 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div
+    class="flex flex-col font-avenir antialiased grayscale min-h-screen bg-charcoal text-snow"
+  >
+    <AppHeader />
+    <main class="flex-1 p-30 px-4 py-20 pt-10">
+      <router-view />
+    </main>
+    <footer class="border-t border-gray-500 text-center p-4">
+      <span class="block">© allu 2020</span>
+    </footer>
   </div>
-  <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { onMounted } from 'vue';
+import { useStore } from './store';
+import AppHeader from './components/AppHeader.vue';
 
-#nav {
-  padding: 30px;
-}
+export default {
+  components: { AppHeader },
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  setup() {
+    const store = useStore();
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+    onMounted(() => {
+      console.log('APP_MOUNTED');
+      store.fetchSession();
+    });
+
+    return { store };
+  },
+};
+</script>
