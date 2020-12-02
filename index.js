@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log('server v2 listening @ 3001');
+  console.log('server listening @ 3001');
 });
 
 connectToDb();
